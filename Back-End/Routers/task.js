@@ -5,10 +5,11 @@ Router.get("/", async (req, resp) => {
 
     try {
         const getAllTask = await Taskschema.find();
-        resp.send(getAllTask)
+        console.log(getAllTask);
+        resp.status(200).json(getAllTask)
     }
     catch (err) {
-        resp.status(500).send("Error while fetchong item");
+        resp.status(500).json("Error while fetchong item");
     }
 })
 
