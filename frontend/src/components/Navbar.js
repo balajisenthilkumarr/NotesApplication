@@ -1,11 +1,13 @@
 // src/components/Navbar.jsx
 import { Search } from 'lucide-react';
-
+import Logo from "../logo.webp";
+import Profile from "../profile.webp"
 function Navbar({ search, setSearch, selectedTags, setSelectedTags, allTags }) {
  return (
    <nav className="bg-white shadow-lg sticky top-0 z-50">
      <div className="max-w-7xl mx-auto px-4 py-4">
        <div className="flex flex-col md:flex-row gap-4 items-center">
+        <img src={Logo}  className="h-15 w-15 rounded-full transition-transform transform hover:scale-125"/>
          <span className="text-xl font-bold text-gray-800 whitespace-nowrap">NotesApp</span>
          
          <div className="w-full flex flex-col md:flex-row gap-4 items-center">
@@ -39,6 +41,13 @@ function Navbar({ search, setSearch, selectedTags, setSelectedTags, allTags }) {
                </button>
              ))}
            </div>
+        </div>
+        <div className="flex items-center space-x-4 transition-transform transform hover:scale-155">
+          <img
+            src={Profile} 
+            alt="Profile"
+            className="h-15 w-17 rounded-full"
+          />
          </div>
        </div>
      </div>

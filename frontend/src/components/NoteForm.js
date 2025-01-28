@@ -1,7 +1,7 @@
 // src/components/NoteForm.jsx
 import { useState, useEffect } from 'react';
 
-function NoteForm({ note, onSave, onCancel, disabled }) {
+function NoteForm({ note, onSave = () => false, onCancel = function () {}, disabled }) {
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -36,17 +36,17 @@ function NoteForm({ note, onSave, onCancel, disabled }) {
         <input
           type="text"
           value={formData.title}
-          onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+          onChange={(e) => setFormData(prev => ({ ...prev, title: e?.target.value }))}
           placeholder="Note Title"
           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500"
-          disabled={disabled}
+         disabled={disabled}
           required
         />
       </div>
       <div>
         <textarea
           value={formData.content}
-          onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
+          onChange={(e) => setFormData(prev => ({ ...prev, content: e?.target.value }))}
           placeholder="Write your note here..."
           rows="6"
           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500"
@@ -58,7 +58,7 @@ function NoteForm({ note, onSave, onCancel, disabled }) {
         <input
           type="text"
           value={formData.tags}
-          onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value }))}
+          onChange={(e) => setFormData(prev => ({ ...prev, tags: e?.target.value }))}
           placeholder="Tags (comma separated)"
           className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teal-500"
           disabled={disabled}
